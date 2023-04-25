@@ -55,6 +55,11 @@ header, form {
     -ms-border-radius: var(--b-rad);
     -o-border-radius: var(--b-rad);
 }
+@media (max-width:630px) {
+    form {
+        flex-direction: column;
+    }
+}
 header h1 {
     color: var(--main-color);
 }
@@ -92,6 +97,13 @@ input[type='submit'] {
     font-weight: bold;
     cursor: pointer;
     transition: .3s;
+}
+@media (max-width:630px) {
+    input[type='text'],
+    input[type='submit'] {
+        width: 100%;
+        margin: 5px 0;
+    }
 }
 input[type='submit']:hover {
     color: var(--main-color);
