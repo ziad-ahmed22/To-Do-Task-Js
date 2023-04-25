@@ -35,7 +35,10 @@ tasksDiv.addEventListener('click', e => {
     // Delete Task
     if (e.target.classList.contains('del')) {
         e.target.parentElement.remove();
-        deleteFromStorage(e.target.parentElement.dataset.id)
+        deleteFromStorage(e.target.parentElement.dataset.id);
+        if (tasksArr.length == 0) {
+            localStorage.removeItem('tasks');
+        }
     }
     // Edit Done Status
     if (e.target.classList.contains('task')) {
