@@ -36,7 +36,10 @@ tasksDiv.addEventListener('click', e => {
     if (e.target.classList.contains('del')) {
         e.target.parentElement.remove();
         deleteFromStorage(e.target.parentElement.dataset.id);
-        if (tasksArr.length == 0) {
+        if (tasksArr.length == 1) {
+            document.querySelector('.del-all-btn').remove();
+        }
+        if (tasksArr.length <= 0) {
             localStorage.removeItem('tasks');
         }
     }
@@ -48,7 +51,7 @@ tasksDiv.addEventListener('click', e => {
     // Delete All Tasks
     if (e.target.classList.contains('del-all-btn')) {
         tasksDiv.textContent = "";
-        tasksArr = [];
+        tasksArr.length = 0;
         localStorage.removeItem('tasks');
     }
 });
