@@ -19,8 +19,6 @@ let input = document.querySelector('[type="text"]');
 let form = document.forms[0];
 let tasksArr = [];
 
-tasksArr.length <=0 ? localStorage.removeItem('tasks') : "";
-
 getFromStorage();
 
 form.onsubmit = e => {
@@ -47,6 +45,7 @@ tasksDiv.addEventListener('click', e => {
     // Delete All Tasks
     if (e.target.classList.contains('del-all-btn')) {
         tasksDiv.textContent = "";
+        tasksArr = [];
         localStorage.removeItem('tasks');
     }
 });
