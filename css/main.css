@@ -9,23 +9,20 @@ body {
 }
 :root {
     --b-rad : 5px;
-    --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --main-color: #6F2BF6;
+    --second-color: white;
 }
 body[data-theme='light'] {
-    --main-color: #5C2D91;
     --input-bg: #5c2d9112;
     --input-color: black;
     --box-color: white;
-    --second-color: white;
-    --body-color: #EAFCFF;
+    --body-color: #deeef1;
 }
 body[data-theme='dark'] {
-    --main-color: #41ff00a3; /*#ffb300a3*/
     --input-bg: #ffffff17;
     --input-color: white;
-    --box-color: #2a2a2c;
-    --second-color: white;
-    --body-color: #000000;
+    --box-color: #2B3035;
+    --body-color: #1B1F22;
 }
 .container {
     width: 600px;
@@ -49,7 +46,6 @@ header, form {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: var(--shadow);
     -webkit-border-radius: var(--b-rad);
     -moz-border-radius: var(--b-rad);
     -ms-border-radius: var(--b-rad);
@@ -80,9 +76,18 @@ input[type='text'] {
     letter-spacing: 2px;
     color: var(--input-color);
     caret-color: var(--main-color);
+    border-bottom: 2px solid transparent;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
 }
 input[type='text']:focus::placeholder {
     opacity: 0;
+}
+input[type='text']:focus {
+    border-bottom: 2px solid var(--main-color);
 }
 input[type='submit'] {
     width: 17%;
@@ -113,7 +118,6 @@ input[type='submit']:hover {
     background-color: var(--box-color);
     border-radius: var(--b-rad);
     padding: 20px;
-    box-shadow: var(--shadow);
     -webkit-border-radius: var(--b-rad);
     -moz-border-radius: var(--b-rad);
     -ms-border-radius: var(--b-rad);
@@ -128,7 +132,6 @@ input[type='submit']:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: var(--shadow);
     position: relative;
     line-height: 1.5;
     -webkit-border-radius: var(--b-rad);
@@ -197,12 +200,19 @@ input[type='submit']:hover {
     -ms-transition: .5s;
     -o-transition: .5s;
 }
-.del-all button:hover {
-    transform: skew(5deg, 5deg);
-    -webkit-transform: skew(5deg, 5deg);
-    -moz-transform: skew(5deg, 5deg);
-    -ms-transform: skew(5deg, 5deg);
-    -o-transform: skew(5deg, 5deg);
+.del-all:hover {
+    transform: translate(-3px);
+    -webkit-transform: translate(-3px);
+    -moz-transform: translate(-3px);
+    -ms-transform: translate(-3px);
+    -o-transform: translate(-3px);
+}
+.del-all:hover button {
+    transform: translate(3px);
+    -moz-transform: translate(3px);
+    -ms-transform: translate(3px);
+    -o-transform: translate(3px);
+    -webkit-transform: translate(3px);
 }
 .copyright {
     position: fixed;
